@@ -47,7 +47,7 @@ class HttpClient {
       {Map<String, dynamic> body}) async {
     body.removeWhere(_nullFilter);
     return http
-        .post(url, body: body.map((k, v) => MapEntry(k, '$v')))
+        .post(Uri.parse(url), body: body.map((k, v) => MapEntry(k, '$v')))
         .then((response) {
       Map<String, dynamic> responseBody = jsonDecode(response.body);
       if (responseBody['ok']) {
