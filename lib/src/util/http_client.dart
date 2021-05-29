@@ -30,7 +30,7 @@ class HttpClient {
   /// HTTP get method
   /// [url] request url with query string (required)
   static Future<dynamic> httpGet(String url) async =>
-      http.get(url).then((response) {
+      http.get(Uri.parse(url)).then((response) {
         Map<String, dynamic> responseBody = jsonDecode(response.body);
         if (responseBody['ok']) {
           return responseBody['result'];
